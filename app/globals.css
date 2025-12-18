@@ -1,0 +1,76 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: sans-serif;
+    --font-montserrat: sans-serif;
+    --font-fira-mono: monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-inter); /* Fallback font */
+    color: white;
+    background-color: black;
+  }
+
+  /* Custom selection style */
+  ::selection {
+    background-color: #ffffff; /* 纯白背景 */
+  color: #000000;            /* 纯黑文字 */
+  }
+}
+
+/* Custom animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-slow-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes fade-in-out {
+  0% { opacity: 0; transform: translateY(0) scale(0.5); }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 60s linear infinite;
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out var(--animation-duration, 10s) infinite ease-in-out;
+}
+
+/* Tailwind's text-balance utility (if not enabled by default in your config) */
+@supports (text-wrap: balance) {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
