@@ -195,11 +195,13 @@ export default function CognintHome() {
             © 2025 COGNINT. ALL RIGHTS RESERVED.
          </p>
 
-         {/* 备案信息栏 (参考您的截图样式) */}
-         <div className="flex flex-col md:flex-row justify-center items-center gap-2 text-xs text-gray-600 font-sans opacity-70 hover:opacity-100 transition-opacity duration-300">
+         {/* 备案信息栏 */}
+         <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 text-xs text-gray-600 font-sans opacity-70 hover:opacity-100 transition-opacity duration-300">
             <span>©2025 元核智策（上海）企业管理有限公司</span>
+            
             <span className="hidden md:inline text-gray-800">|</span>
-            {/* 备案号通常建议链接到工信部，显得更合规，虽然不强求 */}
+            
+            {/* ICP 备案 */}
             <a 
               href="https://beian.miit.gov.cn/" 
               target="_blank" 
@@ -208,6 +210,21 @@ export default function CognintHome() {
             >
               沪ICP备2025149898号-4
             </a>
+
+            <span className="hidden md:inline text-gray-800">|</span>
+
+            {/* 公安联网备案 (新增) */}
+            <a 
+               href="https://beian.mps.gov.cn/#/query/webSearch?code=31010402336191" 
+               target="_blank" 
+               rel="noreferrer" 
+               className="flex items-center gap-1 hover:text-white transition-colors"
+            >
+              {/* 确保 public 下有 beian.png */}
+              <img src="/beian.png" alt="备案图标" className="w-3 h-3 opacity-60" />
+              <span>沪公网安备31010402336191号</span>
+            </a>
+
          </div>
       </footer>
 
